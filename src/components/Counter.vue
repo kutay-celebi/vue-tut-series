@@ -2,7 +2,8 @@
     <div>
         <button v-on:click="increase(2)">Click</button>
         <button v-on:click="counter++">Click</button>
-        <span>{{this.counter}}</span>
+        <span>{{this.counter}}  -  </span>
+        <span>{{ this.counter > 10 ? "> 10 " : "10>"}}</span>
     </div>
 </template>
 
