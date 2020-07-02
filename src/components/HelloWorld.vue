@@ -1,18 +1,28 @@
 <template>
     <div class="hello">
-        <h1>{{ msg }}</h1> <a v-bind:href="link"> Google</a>
+        <!--call once-->
+        <h1 v-once>{{ msg }}</h1>
+        <a v-bind:href="link"> Google</a>
+
+        <h1>{{ sayHello() }}</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name : 'HelloWorld',
-        data : function () {
+        name   : 'HelloWorld',
+        data   : function () {
             return {
                 link: "http://google.com"
             };
         },
-        props: {
+        methods: {
+            sayHello: function () {
+                this.msg = "changed msg"
+                return this.msg;
+            },
+        },
+        props  : {
             msg: String
         },
     }
