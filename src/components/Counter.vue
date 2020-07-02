@@ -8,21 +8,30 @@
 
 <script>
     export default {
-        name     : "Counter",
-        // sadece onu ilgilendiren variable ile ilgili degisiklik olursa calisir.
-        computed : {
+        name    : "Counter",
+        // if the value changes as a result of a synchronous operation
+        computed: {
             output: (props) => {
                 return props.counter > 10 ? "Greater than 10" : "Smaller than 10";
             }
         },
-        methods  : {
+        watch   : {
+            // If the value changes as a result of an asynchronous operation
+            counter: function () {
+                var vm = this;
+                setTimeout(function () {
+                    vm.counter = 0;
+                }, 2000)
+            }
+        },
+        methods : {
             increase: function (improve) {
                 this.counter = this.counter + improve;
             }
         },
-        props    : {
+        props   : {
             counter: {
-                type: Number,
+                type   : Number,
                 default: 1
             }
         }
