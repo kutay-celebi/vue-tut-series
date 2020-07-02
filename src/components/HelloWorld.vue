@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
+    <div class="bordereddiv">
         <!--call once-->
         <h1 v-once>{{ msg }}</h1>
         <a v-bind:href="link"> Google</a>
@@ -35,6 +35,12 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .bordereddiv{
+        padding:1.25rem;
+        margin: 1.25rem;
+        border: 1px solid blue;
+    }
+
     h3 {
         margin: 40px 0 0;
     }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="borderdiv">
         <button v-on:click="increase(2)">Click</button>
         <button v-on:click="counter++">Click</button>
         <span>{{this.counter}}  -  </span>
@@ -24,5 +24,9 @@
 </script>
 
 <style scoped>
-
+    .borderdiv {
+        padding:1.25rem;
+        margin: 1.25rem;
+        border: 1px solid green;
+    }
 </style>
