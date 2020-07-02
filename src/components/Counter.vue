@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button v-on:click="increase()">Click</button>
+        <button v-on:click="increase(2)">Click</button>
+        <button v-on:click="counter++">Click</button>
         <span>{{this.counter}}</span>
     </div>
 </template>
@@ -14,8 +15,8 @@
             };
         },
         methods: {
-            increase: function () {
-                this.counter++
+            increase: function (improve) {
+                this.counter = this.counter + improve;
             }
         }
     }
