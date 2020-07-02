@@ -17,7 +17,8 @@
         },
         watch   : {
             // If the value changes as a result of an asynchronous operation
-            counter: function () {
+            counter: function (value) {
+                console.log(value)
                 var vm = this;
                 setTimeout(function () {
                     vm.counter = 0;
