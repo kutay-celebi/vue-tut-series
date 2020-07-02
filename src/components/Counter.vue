@@ -1,23 +1,29 @@
 <template>
     <div class="borderdiv">
         <button v-on:click="increase(2)">Click</button>
-        <button v-on:click="counter++">Click</button>
-        <span>{{this.counter}}  -  </span>
-        <span>{{ this.counter > 10 ? "> 10 " : "10>"}}</span>
+        <span>{{this.counter}}  -  {{output}} </span>
+
     </div>
 </template>
 
 <script>
     export default {
-        name   : "Counter",
-        data   : function () {
-            return {
-                counter: 0
-            };
+        name     : "Counter",
+        // sadece onu ilgilendiren variable ile ilgili degisiklik olursa calisir.
+        computed : {
+            output: (props) => {
+                return props.counter > 10 ? "Greater than 10" : "Smaller than 10";
+            }
         },
-        methods: {
+        methods  : {
             increase: function (improve) {
                 this.counter = this.counter + improve;
+            }
+        },
+        props    : {
+            counter: {
+                type: Number,
+                default: 1
             }
         }
     }
@@ -25,7 +31,7 @@
 
 <style scoped>
     .borderdiv {
-        padding:1.25rem;
+        padding: 1.25rem;
         margin: 1.25rem;
         border: 1px solid green;
     }
