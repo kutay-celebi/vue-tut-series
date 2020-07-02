@@ -5,6 +5,8 @@
         <a v-bind:href="link"> Google</a>
 
         <h1>{{ sayHello() }}</h1>
+
+        <p v-html="createLink()"/>
     </div>
 </template>
 
@@ -17,10 +19,13 @@
             };
         },
         methods: {
-            sayHello: function () {
+            sayHello  : function () {
                 this.msg = "changed msg"
                 return this.msg;
             },
+            createLink: function () {
+                return '<a href="http://facebook.com">facebook</a> '
+            }
         },
         props  : {
             msg: String
