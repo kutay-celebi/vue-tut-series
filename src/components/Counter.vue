@@ -1,6 +1,7 @@
 <template>
     <div class="borderdiv">
-        <button v-on:click="increase(2)">Click</button>
+        <!--<button v-on:click="increase(2)">Click</button>-->
+        <button @click="increase(2)">Click</button>
         <span>{{this.counter}}  -  {{output}} </span>
 
     </div>

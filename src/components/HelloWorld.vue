@@ -2,7 +2,7 @@
     <div class="bordereddiv">
         <!--call once-->
         <h1 v-once>{{ msg }}</h1>
-        <a v-bind:href="link"> Google</a>
+        <a :href="link"> Google</a>
 
         <h1>{{ sayHello() }}</h1>
 
