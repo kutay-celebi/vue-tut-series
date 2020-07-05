@@ -2,6 +2,8 @@
     <div class="bordereddiv">
         <h2>Slot ex.</h2>
         <slot/>
+        <slot name="namedslot"/>
+        <slot name="defaultslot"><p>default slot</p></slot>
     </div>
 </template>
 

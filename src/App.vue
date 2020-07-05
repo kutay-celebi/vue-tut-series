@@ -7,6 +7,9 @@
         <ConditionalRender/>
         <SlotComponent>
             <p>slot component content</p>
+            <sslot name="namedslot">
+                <p>import named slot</p>
+            </sslot>
         </SlotComponent>
     </div>
 </template>
