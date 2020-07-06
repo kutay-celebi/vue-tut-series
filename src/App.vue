@@ -2,7 +2,7 @@
     <div id="app">
         <form>
             <div class="grid grid-cols-2">
-                <label for="email" class=""> Email</label>
+                <label for="email" v-bind: class=""> Email</label>
                 <input id="email" v-model="email"/>
 
                 <label for="personName"> Name</label>
@@ -24,51 +24,70 @@
 
                 <label for="custom"> Custom Input</label>
                 <input id="custom" :value="custom" @input="custom = $event.target.value"/>
+
+                <CustomSwitch v-model="dataSwitch"/>
+
+
+                <div class="my-5">
+                    <button @click.prevent="onsubmit">
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
 
+        <div v-if="isSubmitted">
+            <div class="formOutput grid grid-cols-2">
+                Email : {{this.email}}
+                Name : {{this.person.name}}
+                Lazy : {{this.lazy}}
+            </div>
+            <h2>Checkboxes</h2>
 
-        <div class="formOutput grid grid-cols-2">
-            Email : {{this.email}}
-            Name : {{this.person.name}}
-            Lazy : {{this.lazy}}
+            <ul>
+                <li v-for="check in checkbox" :key="check"> {{check}}</li>
+            </ul>
+
+            <h2>Dropdown selected</h2>
+            <span> {{selected}}</span>
+
+            <div class="formOutput grid grid-cols-2">
+                Custom : {{this.custom}}
+                Switched : {{this.dataSwitch}}
+            </div>
         </div>
-        <h2>Checkboxes</h2>
-
-        <ul>
-            <li v-for="check in checkbox" :key="check"> {{check}}</li>
-        </ul>
-
-        <h2>Dropdown selected</h2>
-        <span> {{selected}}</span>
-
-        <div class="formOutput grid grid-cols-2">
-            Custom : {{this.custom}}
-        </div>
-
     </div>
 </template>
 
 <script>
 
+    import CustomSwitch from "./components/CustomSwitch";
+
     export default {
         name      : 'App',
-        components: {},
+        components: {CustomSwitch},
         data      : function () {
             return {
-                email   : '',
-                lazy    : '',
-                person  : {
+                email     : '',
+                lazy      : '',
+                person    : {
                     surname: ''
                 },
-                checkbox: [],
-                ditems  : [
+                checkbox  : [],
+                ditems    : [
                     "Item 1",
                     "Item 2",
                     "Item 3",
                 ],
-                selected: '',
-                custom:''
+                selected  : '',
+                custom    : '',
+                dataSwitch: false,
+                isSubmitted: false
+            }
+        },
+        methods   : {
+            onsubmit() {
+                this.isSubmitted = true
             }
         }
     }
