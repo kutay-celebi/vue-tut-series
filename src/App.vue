@@ -61,6 +61,13 @@
             {{filterText | toUppercase}}
         </div>
 
+
+        <transition name="slide" type="out-in">
+            <router-view/>
+        </transition>
+
+        <router-view name="namedRoute"/>
+
     </div>
 </template>
 
@@ -73,23 +80,23 @@
         components: {CustomSwitch},
         data      : function () {
             return {
-                email      : '',
-                lazy       : '',
-                person     : {
+                email        : '',
+                lazy         : '',
+                person       : {
                     surname: ''
                 },
-                checkbox   : [],
-                ditems     : [
+                checkbox     : [],
+                ditems       : [
                     "Item 1",
                     "Item 2",
                     "Item 3",
                 ],
-                selected   : '',
-                custom     : '',
-                dataSwitch : false,
-                isSubmitted: false,
-                filterText: "filter message",
-                computedArray: ["a","b","c"]
+                selected     : '',
+                custom       : '',
+                dataSwitch   : false,
+                isSubmitted  : false,
+                filterText   : "filter message",
+                computedArray: ["a", "b", "c"]
             }
         },
         methods   : {
@@ -102,8 +109,8 @@
                 return value.toUpperCase();
             }
         },
-        computed: {
-            computedVariable(computedVar){
+        computed  : {
+            computedVariable(computedVar) {
                 return computedVar;
             }
         }
@@ -129,5 +136,25 @@
     .formOutput {
         border: 1px solid;
         margin: 1.25rem;
+    }
+
+    @keyframes slide-out {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-30px);
+        }
+
+    }
+
+    @keyframes slide-in {
+
+        0% {
+            transform: translateY(-40px);
+        }
+        100% {
+            transform: translateY(0);
+        }
     }
 </style>
