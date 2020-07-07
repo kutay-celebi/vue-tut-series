@@ -2,7 +2,7 @@
     <div id="app">
         <form>
             <div class="grid grid-cols-2">
-                <label for="email" v-bind: class=""> Email</label>
+                <label for="email"> Email</label>
                 <input id="email" v-model="email"/>
 
                 <label for="personName"> Name</label>
@@ -56,6 +56,11 @@
                 Switched : {{this.dataSwitch}}
             </div>
         </div>
+
+        <div>
+            {{filterText | toUppercase}}
+        </div>
+
     </div>
 </template>
 
@@ -68,26 +73,38 @@
         components: {CustomSwitch},
         data      : function () {
             return {
-                email     : '',
-                lazy      : '',
-                person    : {
+                email      : '',
+                lazy       : '',
+                person     : {
                     surname: ''
                 },
-                checkbox  : [],
-                ditems    : [
+                checkbox   : [],
+                ditems     : [
                     "Item 1",
                     "Item 2",
                     "Item 3",
                 ],
-                selected  : '',
-                custom    : '',
-                dataSwitch: false,
-                isSubmitted: false
+                selected   : '',
+                custom     : '',
+                dataSwitch : false,
+                isSubmitted: false,
+                filterText: "filter message",
+                computedArray: ["a","b","c"]
             }
         },
         methods   : {
             onsubmit() {
                 this.isSubmitted = true
+            }
+        },
+        filters   : {
+            toUppercase(value) {
+                return value.toUpperCase();
+            }
+        },
+        computed: {
+            computedVariable(computedVar){
+                return computedVar;
             }
         }
     }
