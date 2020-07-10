@@ -2,6 +2,7 @@ import Home        from "./components/Home";
 import User        from "./components/user/User";
 import UserProfile from "./components/user/UserProfile";
 import NamedRoute  from "./components/NamedRoute";
+import Counter     from "./components/Counter";
 
 export const routes = [
     {
@@ -15,6 +16,10 @@ export const routes = [
     {
         path     : "/home",
         component: Home
+    },
+    {
+        path     : "/counter",
+        component: Counter
     },
     {
         path     : "/user",
